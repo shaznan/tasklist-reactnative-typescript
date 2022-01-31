@@ -1,3 +1,4 @@
-# tasklist-reactnative-typescript
-# tasklist-reactnative-typescript
-# tasklist-reactnative-typescript
+# TaskList (Drag and drop) 📋
+
+## Built using react-native and typescript 
+
