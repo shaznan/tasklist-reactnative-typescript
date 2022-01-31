@@ -8,12 +8,10 @@ import {
 interface props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: () => void;
 }
 
-const InputFeild: React.FC<props> = ({ todo, setTodo }) => {
-  const onPressHandler = () => {
-    console.log(todo);
-  };
+const InputFeild: React.FC<props> = ({ todo, setTodo, handleAdd }) => {
   return (
     <View style={Styles.input__container}>
       <TextInput
@@ -22,7 +20,7 @@ const InputFeild: React.FC<props> = ({ todo, setTodo }) => {
         onChangeText={setTodo}
         value={todo}
       />
-      <Button title="Go" onPress={onPressHandler} color="black" />
+      <Button title="Go" onPress={handleAdd} color="black" />
     </View>
   );
 };

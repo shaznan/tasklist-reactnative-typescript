@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import InputFeild from "./src/components/InputFeild";
+import { Todo } from "./src/Model/Model";
+import TodoList from "./src/components/TodoList";
 
 export default function app() {
   const [todo, setTodo] = useState<string>("");
+  const [listOfTodo, setListOfTodo] = useState<Todo[]>([]);
+
+  const handleAdd = () => {
+    setListOfTodo([...listOfTodo, { id: Date.now(), todo, isDone: false }]);
+    setTodo("");
+  };
   return (
     <SafeAreaView style={Styles.container}>
       <View>
-        <Text style={Styles.heading}>Taskify App</Text>
-      </View>
-      <View>
-        <InputFeild todo={todo} setTodo={setTodo} />
+        <View>
+          <Text style={Styles.heading}>Taskify App</Text>
+          <InputFeild todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+        </View>
+        <View>
+          <TodoList />
+        </View>
       </View>
     </SafeAreaView>
   );
