@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import InputFeild from "./src/components/InputFeild";
 
-export default function App() {
+export default function app() {
+  const [todo, setTodo] = useState<string>("");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={Styles.container}>
+      <View>
+        <Text style={Styles.heading}>Taskify App</Text>
+      </View>
+      <View>
+        <InputFeild todo={todo} setTodo={setTodo} />
+      </View>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#87ceeb",
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: "bold",
+    alignSelf: "center",
+    marginTop: 10,
   },
 });
+
+// let name: string;
+// let age: number;
+// let animals: string[];
+// let animalWeights: number[];
+
+// type Person = {
+//   name: string;
+//   age?: number | string;
+// };
+
+// let personDetails: Person = {
+//   name: "shaznan",
+//   age: " 15",
+// };
+
+// const listOfPersonDetails: Person[] = [
+//   {
+//     name: "shaznan fairoze",
+//     age: 24,
+//   },
+// ];
+
+// const printSentence: (name: string, age: number) => string = (name, age) => {
+//   return `${name} is ${age} years old`;
+// };
